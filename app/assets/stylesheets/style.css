@@ -1,0 +1,74 @@
+/* team_index */
+.apl_title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.header-layout {
+  justify-content: space-between;
+}
+
+.bg-main {
+  background-color: #9aabcc;
+}
+
+.header-left{
+  display: flex;
+}
+
+.edit-btn{
+  background-color: #dce1ee;
+  color: dimgrey;
+  border-color: #9aabcc;
+}
+
+.main-layout {
+  background-color: aliceblue;
+  display: flex;
+}
+
+.left-screen {
+  width:200px;
+  background-color: #9aabcc7e;
+  justify-content: center;
+}
+
+/* レスポンシブしたいね */
+.profile-img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 30px 30px;
+}
+
+/* user_index */
+
+.boad-layout{
+  height: 100vh;
+  width: 2000px;
+  background-color: #dce1ee;
+  overflow:scroll;
+  white-space:nowrap;
+}
+
+.schedule {
+  display: flex;
+  background-color:powderblue;
+  margin: 10px;
+}
+
+.user-icon{
+  width:150px;
+  margin: 0 5px;
+}
+.boad {
+  height: 250px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: aliceblue;
+  margin: 10px;
+
+
+}
