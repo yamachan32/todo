@@ -1,0 +1,33 @@
+<%# modal化したい %>
+
+ <%= render 'shared/header'%>
+    <div style="padding-top:4rem">
+        <%= form_with model: @team, url: team_entry_path, method: :post, local: true do |form| %>
+
+          <div class="modal-header">
+            <h5 class="modal-title">メンバー追加</h5>
+            <button type="button" class="close js-modal-close">
+              <%# <span aria-hidden="true">&times;</span> %>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            
+            <div class="form-group field">
+              <%= form.label :追加ユーザー , class: "form-control-label"%>
+              <div >
+              <select name="user_id" class="form-control">
+                <option value="">追加するユーザーを選択してください</option>
+                <% User.all.each do |user| %>
+                  <option value=<%=user.id%>><%= user.name %> : <%= user.email %></option>
+                <% end %>
+              </select>
+              </div>
+            </div>
+            
+            <div class="modal-footer actions">
+              <%= form.submit class: "btn btn-primary"%>
+            </div>
+          </div>
+        <% end %>
+    </div>

@@ -1,0 +1,37 @@
+<%# modal化したい %>
+
+ <%= render 'shared/header'%>
+    <div style="padding-top:4rem">
+        <%= form_with model: @team, url: teams_path, method: :post, local: true do |form| %>
+
+          <div class="modal-header">
+            <h5 class="modal-title">チーム作成</h5>
+            <button type="button" class="close js-modal-close">
+              <%# <span aria-hidden="true">&times;</span> %>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+
+            <div class="form-group field">
+              <%= form.label :team_name , class: "form-control-label"%>
+              <%= form.text_field :team_name, class: "form-control" %>
+            </div>
+            
+            <div class="form-group field">
+              <%= form.label :team_explanation , class: "form-control-label"%>
+              <%= form.text_area :team_explanation, class: "form-control" %>
+            </div>
+
+            <div class="form-group field">
+              <%= form.label :team_image , class: "form-control-label"%>
+              <%= form.file_field :image, id:"item-image" %>
+            </div>
+                
+            <div class="modal-footer actions">
+              <%= form.submit class: "btn btn-primary"%>
+            </div>
+          </div>
+        <% end %>
+    </div>
+

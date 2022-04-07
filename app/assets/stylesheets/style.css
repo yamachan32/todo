@@ -10,7 +10,7 @@
 }
 
 .bg-main {
-  background-color: #9aabcc;
+  background-color: #8fc4c5;
 }
 
 .header-left{
@@ -24,15 +24,20 @@
 }
 
 .main-layout {
-  background-color: aliceblue;
+  background-color: #c7eaeb;
+  min-height: 100vh;
+  height: auto;
   display: flex;
 }
 
 .left-screen {
   width:200px;
-  background-color: #9aabcc7e;
+  background-color: #b0d6d8;
   justify-content: center;
 }
+
+
+
 
 /* レスポンシブしたいね */
 .profile-img{
@@ -43,25 +48,34 @@
   margin: 30px 30px;
 }
 
+.link_team{
+  text-decoration: none;
+  color:black ;
+
+}
+
 /* user_index */
 
 .boad-layout{
   height: 100vh;
   width: 2000px;
-  background-color: #dce1ee;
+  background-color: #c7eaeb;
   overflow:scroll;
   white-space:nowrap;
 }
 
 .schedule {
   display: flex;
-  background-color:powderblue;
+  background-color:rgb(183, 205, 224, 0.5);
   margin: 10px;
+  
 }
 
 .user-icon{
   width:150px;
   margin: 0 5px;
+  display: flex;
+  flex-direction: column;
 }
 .boad {
   height: 250px;
@@ -69,6 +83,218 @@
   border-radius: 5px;
   background-color: aliceblue;
   margin: 10px;
+}
+
+/* log_in */
+
+.login-btn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.login-red-btn {
+  width: 100%;
+  background: #9aabcc;
+  border: 1px solid #9aabcc;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* registration */
+.registration-main {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+
+/* form-wrapは商品購入画面でも使用しています */
+.form-wrap {
+  width: 50%;
+  background-color: white;
+  padding-bottom: 70px;
+}
+
+.form-header {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.form-header-text {
+  line-height: 100px;
+  border-bottom: 1px solid #f5f5f5;
+  font-weight: bold;
+}
+
+.form-group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.form-group:first-child {
+  padding: 0;
+}
+
+.form-text-wrap {
+  width: 100%;
+  height: 20%;
+}
+
+.form-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-default {
+  width: 100%;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.info-text {
+  color: #888;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.form-info-header {
+  font-weight: bold;
+}
+
+.form-info-text {
+  font-size: 15px;
+}
+
+.input-name-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.input-name {
+  width: 130px;
+  margin: 5px 20px 0 20px;
+  height: 48px;
+  line-height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+}
+
+.input-birth-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-birth-wrap select {
+  width: 75px;
+  margin-top: 5px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.input-birth-wrap p {
+  line-height: 60px;
+  padding: 0 5px;
+}
+
+.field_with_errors {
+  display: contents;
+}
 
 
+.form-bottom-text {
+  font-size: 15px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-bottom-text:last-child {
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+.form-bottom-text>span {
+  color: #0099e8;
+  cursor: pointer;
+}
+
+.register-btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.register-red-btn {
+  width: 100%;
+  background: #9aabcc;
+  border: 1px solid #9aabcc;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.register-info {
+  margin: 30px 180px 0 0;
+  color: #0099e8;
+  text-align: right;
+  cursor: pointer;
+}
+
+/* team_card */
+.card-img-top {
+  width:100%;
+  height:200px;
+}
+
+.card {
+  margin-top: 10px;
+  width: 300px;
+  height: 100%;
+}
+
+/* task-card */
+ul.cp_list {
+  position: relative;
+  padding: 0;
+  list-style-type: none;
+  margin: 5px;
+}
+ul.cp_list li {
+  padding: 0.5em;
+  margin-bottom: 3px;
+  line-height: 1.5;
+  border-left: solid 6px #1A237E;
+  background: #80DEEA;
+  color:#1A237E;
+  font-size: 12px;
+  height: 45px;
+}
+
+.progress-mini{
+  height: 6px;
 }

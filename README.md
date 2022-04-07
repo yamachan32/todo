@@ -35,7 +35,7 @@ User : AdminUser , Pass : P@ssw0rds
 
 # データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/a26c80c51494199a6124f2464cc66f62.png)](https://gyazo.com/a26c80c51494199a6124f2464cc66f62)
+[![Image from Gyazo](https://i.gyazo.com/27cca2f6a8bac6f1d21fb3aa21a2b604.png)](https://gyazo.com/27cca2f6a8bac6f1d21fb3aa21a2b604)
 
 # テーブル設計
 
@@ -51,21 +51,22 @@ User : AdminUser , Pass : P@ssw0rds
 ### Association
 
 - has_many :team_users
-- has_many :teams
 - has_many :cards
 - has_many :comments
+- has_one_attached :image
 
 ## teams テーブル
 
-| Column    | Type       | Options                         |
-| --------- | ---------- | ------------------------------- |
-| team_name | string     | null: false                     |
-| user      | references | null: false , foreign_key: true |
+| Column           | Type       | Options                         |
+| ---------------- | ---------- | ------------------------------- |
+| team_name        | string     | null: false                     |
+| team_explanation | string     | null: false                     |
+| user             | references | null: false , foreign_key: true |
 
 ### Association
 
 - has_many :team_users
-- belongs_to :user
+- has_one_attached :image
 
 ## team_users テーブル
 

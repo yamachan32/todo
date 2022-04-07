@@ -1,0 +1,68 @@
+<%= render 'shared/header'%>
+
+<%# 1user %>
+    <main class="boad-layout" style="padding-top:4rem">
+      <% @members_cards.each do |card_group| %>
+
+        <div class="member">
+          <div class="schedule mb-2">
+            <div class="user-icon">
+              <%= link_to(user_path(card_group[:member].id),class:"card link_team") do %>
+                <img src="/assets/profile_icon.png" class="profile-img">
+                <%= card_group[:member].name %>
+              <% end %>
+            </div>
+
+            <div class="boad new-card">
+              新規
+              <ul class="cp_list">
+                  <% card_group[:unseted].each do |card| %>
+                    <li>
+                      <%= card[:title] %>
+                      <div class="progress mb-2">
+                        <div class="progress-bar progress-bar-striped bg-info progress-mini" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div> 
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+            </div>
+
+            <div class="boad over-limit">
+              期限切れ
+              <ul class="cp_list">
+                  <% card_group[:expired].each do |card| %>
+                    <li>
+                      <%= card[:title] %>
+                      <div class="progress mb-2">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>                   
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+            </div>
+            
+            <% card_group[:schedules].each do |day,i| %>
+              <div class="boad">
+
+                <div class='date'>
+                  <%= day[:month]%>/<%= day[:date] %><%= day[:wday] %>
+                </div>
+
+                <ul class="cp_list">
+                  <% day[:cards].each do |card| %>
+                    <li>
+                      <%= card[:title] %>
+                      <div class="progress mb-2">
+                      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    
+                    </div>
+                    </li>
+
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </main>
