@@ -6,7 +6,6 @@ class TasksController < ApplicationController
   end
 
   def update
-
     task = Task.find(params[:task_id])
 
     task.finish = params[:finish]
