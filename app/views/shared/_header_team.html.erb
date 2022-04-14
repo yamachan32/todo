@@ -20,7 +20,7 @@
             <div class="navbar-nav ">
                 <div class="nav-link text-dark"><%= @team[:team_name] %></div>
                 <%= link_to "メンバー追加" , team_entry_path(@team.id), class:"nav-link text-dark" %>
-                <%= link_to "新規カード" , new_card_path , class:"nav-link text-dark" %>
+                <%# <%= link_to "新規カード" , new_card_path , class:"nav-link text-dark" %>
                 <%# <%= link_to "＜前の週" , "#last_week" , class:"nav-link text-dark" %> 
                 <%# <%= link_to "次の週＞" , "#next_week" , class:"nav-link text-dark" %> 
                 <%= link_to "ログアウト" ,  destroy_user_session_path , method: :delete, class:"nav-link text-dark" %>

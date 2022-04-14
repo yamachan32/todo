@@ -28,10 +28,12 @@ submit.addEventListener("click", (e) => {
   }else if(submit.value=="更新"){
     XHR.open("PUT", `/cards/${card_id}`, true);
   }
+  XHR.responseType = "json";
   XHR.send(formData);
-
-  window.location.href = "/";
-
+  XHR.onload = () => {
+    const user_id = XHR.response.user_id;
+    window.location.href = `/users/${user_id}`;
+  }
 });
 };
 

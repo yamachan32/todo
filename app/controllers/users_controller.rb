@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       today_cards = []
 
       cards.each do |card|
-        if card[:user_id] == current_user.id && card[:limit_date] >= todays_date && (card.working_date == todays_date + x)
+        if card[:user_id] == user.id && card[:limit_date] >= todays_date && (card.working_date == todays_date + x)
           # ここで振り分けてpushしよう
           today_cards.push(card)
         end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     unseted_cards = []
 
     cards.each do |card|
-      if card[:user_id] == current_user.id
+      if card[:user_id] == user.id
         expired_cards.push(card) if card[:limit_date] < todays_date
         unseted_cards.push(card) if card[:working_date].nil?
       end

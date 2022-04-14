@@ -24,7 +24,7 @@
 
             <div class="form-group-sm field">
               <div class="d-flex align-items-end">作業時間</div>
-              <%= form.select :working_hours, [["30分", "0.5"], ["60分", "1"],["90分", "1.5"], ["120分", "2"]],{include_blank: "選択して下さい"},{class: 'form-control'}%>
+              <%= form.select :working_hours, [["30分", "1"], ["60分", "2"],["90分", "3"], ["120分", "4"]],{include_blank: "選択して下さい" ,selected: @card.working_hours},{class: 'form-control'}%>
             </div>
 
             <div class="d-flex justify-content-around">
