@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
   def index
     teamids = TeamUser.where(user_id: current_user.id).pluck(:team_id)
     @teams = Team.where(id: teamids)
+    @user = User.find(current_user.id)
   end
 
   def new
@@ -20,7 +21,6 @@ class TeamsController < ApplicationController
 
   def show
     card_sort
-
   end
 
   def team_entry

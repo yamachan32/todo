@@ -1,4 +1,4 @@
-<%= render 'shared/header'%>
+<%= render 'shared/header_team'%>
 
 <%# 1user %>
     <main class="boad-layout" style="padding-top:4rem">
@@ -7,10 +7,17 @@
         <div class="member">
           <div class="schedule mb-2">
             <div class="user-icon">
-              <%= link_to(user_path(card_group[:member].id),class:"card link_team") do %>
-                <img src="/assets/profile_icon.png" class="profile-img">
-                <%= card_group[:member].name %>
+              <%= link_to(user_path(card_group[:member].id)) do%>
+                <p class="trim-image-to-circle">
+                <% if card_group[:member].avatar.attached? %>
+                  <%= image_tag (card_group[:member].avatar), class:"profile-img" %>
+                <% else %>
+                  <img src="/assets/profile_icon.png" class="profile-img">
+                <% end %> 
+                 </p>
               <% end %>
+              <p> NAME: <%= card_group[:member].name %> </p>
+              <p> SECTION: <%= card_group[:member].section %> </p>
             </div>
 
             <div class="boad new-card">
@@ -18,10 +25,15 @@
               <ul class="cp_list">
                   <% card_group[:unseted].each do |card| %>
                     <li>
-                      <%= card[:title] %>
+                      <%= link_to card[:title], edit_card_path(card), class:"text-dark"%>
                       <div class="progress mb-2">
-                        <div class="progress-bar progress-bar-striped bg-info progress-mini" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div> 
-                      </div>
+                      <%if (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i).nan? %>
+                        <% progress = 0  %>
+                      <%else%>             
+                        <% progress = (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i*100).floor %>
+                      <% end %>
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= progress%>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>                   
+                       </div>
                     </li>
                   <% end %>
                 </ul>
@@ -32,9 +44,14 @@
               <ul class="cp_list">
                   <% card_group[:expired].each do |card| %>
                     <li>
-                      <%= card[:title] %>
+                      <%= link_to card[:title], edit_card_path(card), class:"text-dark"%>
                       <div class="progress mb-2">
-                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>                   
+                          <%if (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i).nan? %>
+                            <% progress = 0  %>
+                          <%else%>             
+                            <% progress = (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i*100).floor %>
+                          <% end %>
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= progress%>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>                   
                       </div>
                     </li>
                   <% end %>
@@ -51,10 +68,15 @@
                 <ul class="cp_list">
                   <% day[:cards].each do |card| %>
                     <li>
-                      <%= card[:title] %>
+                      <%= link_to card[:title], edit_card_path(card), class:"text-dark"%>
                       <div class="progress mb-2">
-                      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                    
+                          <%if (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i).nan? %>
+                            <% progress = 0  %>
+                          <%else%>             
+                            <% progress = (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i*100).floor %>
+                          <% end %>
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= progress %>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>                   
+
                     </div>
                     </li>
 

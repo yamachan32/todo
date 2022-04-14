@@ -37,7 +37,14 @@
 }
 
 
-
+.trim-image-to-circle {
+  background-image: url("summerriver.jpg");  /* 表示する画像 */
+  width:  180px;       /* ※縦横を同値に */
+  height: 180px;       /* ※縦横を同値に */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  background-position: left top;  /* 横長画像の左上を基準に表示 */
+  display: inline-block;          /* 複数の画像を横に並べたい場合 */
+}
 
 /* レスポンシブしたいね */
 .profile-img{
@@ -68,7 +75,6 @@
   display: flex;
   background-color:rgb(183, 205, 224, 0.5);
   margin: 10px;
-  
 }
 
 .user-icon{
@@ -79,6 +85,15 @@
 }
 .boad {
   height: 250px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: aliceblue;
+  margin: 10px;
+  overflow: scroll;
+}
+
+.boad-show{
+  /* height: 100%; */
   width: 200px;
   border-radius: 5px;
   background-color: aliceblue;
@@ -111,6 +126,10 @@
   background-color: #f5f5f5;
   display: flex;
   justify-content: center;
+}
+
+.user-link{
+  text-align: center;
 }
 
 /* form-wrapは商品購入画面でも使用しています */
@@ -289,10 +308,10 @@ ul.cp_list li {
   margin-bottom: 3px;
   line-height: 1.5;
   border-left: solid 6px #1A237E;
-  background: #80DEEA;
+  background: #abe2ea;
   color:#1A237E;
   font-size: 12px;
-  height: 45px;
+  /* height: 45px; */
 }
 
 .progress-mini{

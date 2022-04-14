@@ -1,10 +1,23 @@
 
-  <%= render 'shared/header'%>
+  <%= render 'shared/header_top'%>
 
     <main class="main-layout" style="padding-top:3rem">
       <div class = "left-screen">
-        プロフィール
-        <img src="/assets/profile_icon.png" class="profile-img">
+        <div class="user-icon">
+          <%= link_to(user_path(@user.id)) do %>
+            <p class="trim-image-to-circle">
+            <% if @user.avatar.attached? %>
+              <%= image_tag (current_user.avatar), class:"profile-img" %>
+            <% else %>
+              <img src="/assets/profile_icon.png" class="profile-img">
+            <% end %>
+            </p>
+          <% end %>
+          <p>NAME: <%= @user.name %></p>
+          <p>SECTION: <%= @user.section %></p>
+          今月の達成状況
+
+        </div>
 
       </div>
 

@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     get 'entry', to: 'teams#team_entry'
     post 'entry', to: 'teams#member_add'
   end
-  resources :cards, only:[:new,:create] do
+  resources :cards, only:[:new,:create, :update, :edit] do
     resources :tasks, only:[:index,:create]
     resources :comments, only:[:index, :create]
   end
+  resources :tasks, only: [:update]
 
 end

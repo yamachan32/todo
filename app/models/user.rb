@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_many :cards
     has_many :comments
     has_many :team_users
+    has_one_attached :avatar
   
     validates :name, presence: true
     validates :section, presence: true

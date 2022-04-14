@@ -1,0 +1,31 @@
+    <header>
+
+      <%# ナビゲーションメニュー %>
+      <nav class="bg-main navbar navbar-expand-lg navbar-light fixed-top fixed-left">
+        <div class="header-left">
+          <%# <a class="navbar-brand text-dark" href="/teams">todo</a> %>
+          <%= link_to "todo" ,teams_path, class:"navbar-brand text-dark"  %>
+
+
+        <%# 検索メニューの設置 %>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success edit-btn mx-2" type="submit">Search</button>
+        </form>
+      </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ">
+                <div class="nav-link text-dark"><%= @team[:team_name] %></div>
+                <%= link_to "メンバー追加" , team_entry_path(@team.id), class:"nav-link text-dark" %>
+                <%= link_to "新規カード" , new_card_path , class:"nav-link text-dark" %>
+                <%# <%= link_to "＜前の週" , "#last_week" , class:"nav-link text-dark" %> 
+                <%# <%= link_to "次の週＞" , "#next_week" , class:"nav-link text-dark" %> 
+                <%= link_to "ログアウト" ,  destroy_user_session_path , method: :delete, class:"nav-link text-dark" %>
+
+             </div>
+        </div>
+      </nav>
+    </header>

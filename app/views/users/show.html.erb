@@ -1,59 +1,79 @@
-<%= render 'shared/header'%>
+<%= render 'shared/header_user'%>
 
 <%# 1user %>
     <main class="boad-layout" style="padding-top:4rem">
+    
         <div class="member">
           <div class="schedule mb-2">
-            <div class="user-icon">
-              <img src="/assets/profile_icon.png" class="profile-img">
-              <%= card_group[:member].name %>
-            </div>
-
-            <div class="boad new-card">
+            <div class="boad-show new-card">
               新規
               <ul class="cp_list">
-                  <% card_group[:unseted].each do |card| %>
-                    <li>
-                      <%= card[:title] %>
+                  <% @user_cards[0][:unseted].each do |card| %>
+                    <li id="card<%=card.id%>">
+                      <%= link_to card[:title], edit_card_path(card), class:"text-dark" %>
                       <div class="progress mb-2">
-                        <div class="progress-bar progress-bar-striped bg-info progress-mini" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div> 
-                      </div>
+                          <%if (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i).nan? %>
+                            <% progress = 0  %>
+                          <%else%>             
+                            <% progress = (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i*100).floor %>
+                          <% end %>
+                          <div class="progress-bar" id= "bar<%=card.id%>" role="progressbar" style="width: <%= progress%>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><%= progress%>%</div>                   
+                       </div>
+                      <% card.tasks.each do |task| %>
+                          <label><input type="checkbox", class="check", id=<%=card.id%> value =<%= task.id %> <%= "checked='checked'" if task.finish == true %>><%= task.matter %></label><br>
+                      <% end %>
                     </li>
                   <% end %>
                 </ul>
             </div>
 
-            <div class="boad over-limit">
+            <div class="boad-show over-limit">
               期限切れ
               <ul class="cp_list">
-                  <% card_group[:expired].each do |card| %>
-                    <li>
-                      <%= card[:title] %>
+                  <% @user_cards[0][:expired].each do |card| %>
+                    <li id="card<%=card.id%>">
+                      <%= link_to card[:title], edit_card_path(card), class:"text-dark" %>
                       <div class="progress mb-2">
-                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>                   
-                      </div>
+                          <%if (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i).nan? %>
+                            <% progress = 0  %>
+                          <%else%>             
+                            <% progress = (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i*100).floor %>
+                          <% end %> 
+                          <div class="progress-bar" id= "bar<%=card.id%>" role="progressbar" style="width: <%= progress%>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><%= progress%>%</div>                   
+                       </div>
+                      <% card.tasks.each do |task| %>
+                          <label><input type="checkbox", class="check", id=<%=card.id%> value =<%= task.id %> <%= "checked='checked'" if task.finish == true %>><%= task.matter %></label><br>
+                      <% end %>
                     </li>
                   <% end %>
                 </ul>
             </div>
             
-            <% card_group[:schedules].each do |day,i| %>
-              <div class="boad">
+            <% @user_cards[0][:schedules].each do |day,i| %>
+              <div class="boad-show">
 
                 <div class='date'>
                   <%= day[:month]%>/<%= day[:date] %><%= day[:wday] %>
                 </div>
-
                 <ul class="cp_list">
                   <% day[:cards].each do |card| %>
-                    <li>
-                      <%= card[:title] %>
+                    <li id="card<%=card.id%>">
+                      <%= link_to card[:title], edit_card_path(card), class:"text-dark"%>
                       <div class="progress mb-2">
-                      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                    
-                    </div>
+                        <%if (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i).nan? %>
+                          <% progress = 0  %>
+                        <%else%>             
+                          <% progress = (card.tasks.pluck(:finish).count(true).to_f/card.tasks.pluck(:finish).length.to_i*100).floor %>
+                        <% end %>
+                        <div class="progress-bar" id= "bar<%=card.id%>" role="progressbar" style="width: <%= progress%>%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><%= progress%>%</div>                   
+                      </div>
+                      <div id="items">
+                        <% card.tasks.each do |task| %>
+                            <label><input type="checkbox", class="check", id=<%=card.id%> value =<%= task.id %> <%= "checked='checked'" if task.finish == true %>><%= task.matter %></label><br>
+                        <% end %>
+                      </div>
+                      
                     </li>
-
                   <% end %>
                 </ul>
               </div>
