@@ -17,11 +17,13 @@
   display: flex;
 }
 
+
 .edit-btn{
   background-color: #dce1ee;
   color: dimgrey;
   border-color: #9aabcc;
 }
+
 
 .main-layout {
   background-color: #c7eaeb;
@@ -283,6 +285,8 @@
   text-align: right;
   cursor: pointer;
 }
+
+
 
 /* team_card */
 .card-img-top {
