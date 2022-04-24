@@ -19,9 +19,14 @@
 
 
 .edit-btn{
-  background-color: #dce1ee;
-  color: dimgrey;
-  border-color: #9aabcc;
+  background-color: #b0d6d8 !important;
+  color: dimgrey !important;
+  border-color: #b0d6d8 !important;
+}
+
+.edit-btn:hover, .edit-btn:active {
+  background-color: #c7eaeb !important;
+  border: 1px solid #c7eaeb !important;
 }
 
 
