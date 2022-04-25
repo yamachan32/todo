@@ -79,9 +79,13 @@ class TeamsController < ApplicationController
       unseted_cards = []
 
       cards.each do |card|
-        if card[:user_id] == member[:id]
-          expired_cards.push(card) if card[:limit_date] < todays_date
-          unseted_cards.push(card) if card[:working_date].nil?
+        next unless card[:user_id] == member[:id]
+
+        if card[:limit_date] < todays_date && card.tasks.pluck(:finish).count(true) != card.tasks.pluck(:finish).length
+          expired_cards.push(card)
+        end
+        if card[:working_date].nil? && card.tasks.pluck(:finish).count(true) != card.tasks.pluck(:finish).length
+          unseted_cards.push(card)
         end
       end
 
