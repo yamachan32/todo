@@ -17,7 +17,6 @@
   display: flex;
 }
 
-
 .edit-btn{
   background-color: #b0d6d8 !important;
   color: dimgrey !important;
@@ -28,7 +27,6 @@
   background-color: #c7eaeb !important;
   border: 1px solid #c7eaeb !important;
 }
-
 
 .main-layout {
   background-color: #c7eaeb;
@@ -45,12 +43,12 @@
 
 
 .trim-image-to-circle {
-  background-image: url("summerriver.jpg");  /* 表示する画像 */
-  width:  180px;       /* ※縦横を同値に */
-  height: 180px;       /* ※縦横を同値に */
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  background-position: left top;  /* 横長画像の左上を基準に表示 */
-  display: inline-block;          /* 複数の画像を横に並べたい場合 */
+  background-image: url("summerriver.jpg");
+  width:  180px;
+  height: 180px;
+  border-radius: 50%;
+  background-position: left top;
+  display: inline-block;
 }
 
 /* レスポンシブしたいね */
@@ -139,7 +137,6 @@
   text-align: center;
 }
 
-/* form-wrapは商品購入画面でも使用しています */
 .form-wrap {
   width: 50%;
   background-color: white;
